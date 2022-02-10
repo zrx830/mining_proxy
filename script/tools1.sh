@@ -28,11 +28,11 @@ install() {
     read -p "$(echo -e "请输入[1-2]：")" choose
     case $choose in
     1)
-        wget https://raw.githubusercontent.com/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
+        wget https://github.com/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
 #        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
         ;;
     2)
-        wget https://raw.githubusercontent.com/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/minerProxy
+        wget https://github.com/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/minerProxy
 #        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/main/mining_proxy_linux -O /root/miner_proxy/miningProxy
         ;;
     *)
@@ -41,8 +41,8 @@ install() {
     esac
     chmod 777 /root/mining_proxy/miningProxy
 
-    wget https://raw.githubusercontent.com/zrx830/mining_proxy/tree/main/script/run.sh -O /root/mining_proxy/run.sh
-#    wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/tree/main/script/run.sh -O /root/mining_proxy/run.sh
+    wget https://raw.githubusercontent.com/zrx830/mining_proxy/main/script/run.sh -O /root/mining_proxy/run.sh
+#    wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/main/script/run.sh -O /root/mining_proxy/run.sh
     chmod 777 /root/mining_proxy/run.sh
     echo "如果没有报错则安装成功"
     echo "正在启动..."
@@ -82,11 +82,11 @@ update() {
     read -p "$(echo -e "请输入[1-2]：")" choose
     case $choose in
     1)
-        wget https://raw.githubusercontent.com/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
+        wget https://github.com/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
 #        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
         ;;
     2)
-        wget https://raw.githubusercontent.com/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
+        wget https://github.com/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
 #        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
         ;;
     *)
