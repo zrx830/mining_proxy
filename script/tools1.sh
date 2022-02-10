@@ -28,72 +28,72 @@ install() {
     read -p "$(echo -e "请输入[1-2]：")" choose
     case $choose in
     1)
-        wget https://raw.githubusercontent.com/zrx830/minerProxy/master/release/v3.0.3/minerProxy_web -O /root/miner_proxy/minerProxy
-#        wget https://cdn.jsdelivr.net/gh/zrx830/minerProxy@master/release/v3.0.3/minerProxy_web -O /root/miner_proxy/minerProxy
+        wget https://raw.githubusercontent.com/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
+#        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
         ;;
     2)
-        wget https://raw.githubusercontent.com/zrx830/minerProxy/master/release/v4.0.0T8/minerProxy_v4.0.0T9_linux_amd64 -O /root/miner_proxy/minerProxy
-#        wget https://cdn.jsdelivr.net/gh/zrx830/minerProxy@master/release/v4.0.0T8/minerProxy_v4.0.0T9_linux_amd64 -O /root/miner_proxy/minerProxy
+        wget https://raw.githubusercontent.com/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/mining_proxy/minerProxy
+#        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/miner_proxy/miningProxy
         ;;
     *)
         echo "请输入正确的数字"
         ;;
     esac
-    chmod 777 /root/miner_proxy/minerProxy
+    chmod 777 /root/mining_proxy/miningProxy
 
-    wget https://raw.githubusercontent.com/zrx830/minerProxy/master/scripts/run.sh -O /root/miner_proxy/run.sh
-#    wget https://cdn.jsdelivr.net/gh/zrx830/minerProxy@master/scripts/run.sh -O /root/miner_proxy/run.sh
-    chmod 777 /root/miner_proxy/run.sh
+    wget https://raw.githubusercontent.com/zrx830/mining_proxy/tree/main/script/run.sh -O /root/mining_proxy/run.sh
+#    wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/tree/main/script/run.sh -O /root/mining_proxy/run.sh
+    chmod 777 /root/mining_proxy/run.sh
     echo "如果没有报错则安装成功"
     echo "正在启动..."
-    screen -dmS minerProxy
+    screen -dmS miningProxy
     sleep 0.2s
-    screen -r minerProxy -p 0 -X stuff "cd /root/miner_proxy"
-    screen -r minerProxy -p 0 -X stuff $'\n'
-    screen -r minerProxy -p 0 -X stuff "./run.sh"
-    screen -r minerProxy -p 0 -X stuff $'\n'
+    screen -r miningProxy -p 0 -X stuff "cd /root/mining_proxy"
+    screen -r miningProxy -p 0 -X stuff $'\n'
+    screen -r miningProxy -p 0 -X stuff "./run.sh"
+    screen -r miningProxy -p 0 -X stuff $'\n'
     sleep 1s
-    cat /root/miner_proxy/config.yml
+    cat /root/mining_proxy/config.yml
     echo "请记录您的token和端口 并打开 http://服务器ip:端口 访问web服务进行配置"
-    echo "已启动web后台 您可运行 screen -r minerProxy 查看程序输出"
+    echo "已启动web后台 您可运行 screen -r miningProxy 查看程序输出"
 }
 
 uninstall() {
-    read -p "是否确认删除minerProxy[yes/no]：" flag
+    read -p "是否确认删除miningProxy[yes/no]：" flag
     if [ -z $flag ]; then
         echo "输入错误" && exit 1
     else
         if [ "$flag" = "yes" -o "$flag" = "ye" -o "$flag" = "y" ]; then
-            screen -X -S minerProxy quit
-            rm -rf /root/miner_proxy
-            echo "卸载minerProxy成功"
+            screen -X -S miningProxy quit
+            rm -rf /root/mining_proxy
+            echo "卸载miningProxy成功"
         fi
     fi
 }
 
 update() {
-    if screen -list | grep -q "minerProxy"; then
-        screen -X -S minerProxy quit
+    if screen -list | grep -q "miningProxy"; then
+        screen -X -S miningProxy quit
     fi
-    rm -rf /root/miner_proxy/minerProxy
+    rm -rf /root/mining_proxy/miningProxy
     echo "请选择V3.0.3版本还是V4.0.0版本"
     echo "  1、V3.0.3"
     echo "  2、V4.0.0T7"
     read -p "$(echo -e "请输入[1-2]：")" choose
     case $choose in
     1)
-        wget https://raw.githubusercontent.com/zrx830/minerProxy/master/release/v3.0.3/minerProxy_web -O /root/miner_proxy/minerProxy
-#        wget https://cdn.jsdelivr.net/gh/zrx830/minerProxy@master/release/v3.0.3/minerProxy_web -O /root/miner_proxy/minerProxy
+        wget https://raw.githubusercontent.com/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
+#        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
         ;;
     2)
-        wget https://raw.githubusercontent.com/zrx830/minerProxy/master/release/v4.0.0T8/minerProxy_v4.0.0T9_linux_amd64 -O /root/miner_proxy/minerProxy
-#        wget https://cdn.jsdelivr.net/gh/zrx830/minerProxy@master/release/v4.0.0T8/minerProxy_v4.0.0T9_linux_amd64 -O /root/miner_proxy/minerProxy
+        wget https://raw.githubusercontent.com/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
+#        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
         ;;
     *)
         echo "请输入正确的数字"
         ;;
     esac
-    chmod 777 /root/miner_proxy/minerProxy
+    chmod 777 /root/mining_proxy/miningProxy
 
     echo "v3和v4版本配置文件不通用,如果您为v3升级为v4或v4回退至v3,请删除配置文件"
     read -p "是否删除配置文件[yes/no]：" flag
@@ -101,58 +101,58 @@ update() {
         echo "输入错误" && exit 1
     else
         if [ "$flag" = "yes" -o "$flag" = "ye" -o "$flag" = "y" ]; then
-            rm -rf /root/miner_proxy/config.yml
+            rm -rf /root/mining_proxy/config.yml
             echo "删除配置文件成功"
         fi
     fi
-    screen -dmS minerProxy
+    screen -dmS miningProxy
     sleep 0.2s
-    screen -r minerProxy -p 0 -X stuff "cd /root/miner_proxy"
-    screen -r minerProxy -p 0 -X stuff $'\n'
-    screen -r minerProxy -p 0 -X stuff "./run.sh"
-    screen -r minerProxy -p 0 -X stuff $'\n'
+    screen -r miningProxy -p 0 -X stuff "cd /root/mining_proxy"
+    screen -r miningProxy -p 0 -X stuff $'\n'
+    screen -r miningProxy -p 0 -X stuff "./run.sh"
+    screen -r miningProxy -p 0 -X stuff $'\n'
 
     sleep 1s
-    cat /root/miner_proxy/config.yml
+    cat /root/mining_proxy/config.yml
     echo "请记录您的token和端口 并打开 http://服务器ip:端口 访问web服务进行配置"
-    echo "您可运行 screen -r minerProxy 查看程序输出"
+    echo "您可运行 screen -r miningProxy 查看程序输出"
 }
 
 start() {
-    if screen -list | grep -q "minerProxy"; then
-        echo -e "minerProxy已启动,请勿重复启动" && exit 1
+    if screen -list | grep -q "miningProxy"; then
+        echo -e "miningProxy已启动,请勿重复启动" && exit 1
     fi
-    screen -dmS minerProxy
+    screen -dmS miningProxy
     sleep 0.2s
-    screen -r minerProxy -p 0 -X stuff "cd /root/miner_proxy"
-    screen -r minerProxy -p 0 -X stuff $'\n'
-    screen -r minerProxy -p 0 -X stuff "./run.sh"
-    screen -r minerProxy -p 0 -X stuff $'\n'
+    screen -r miningProxy -p 0 -X stuff "cd /root/mining_proxy"
+    screen -r miningProxy -p 0 -X stuff $'\n'
+    screen -r miningProxy -p 0 -X stuff "./run.sh"
+    screen -r miningProxy -p 0 -X stuff $'\n'
 
-    echo "minerProxy已启动"
-    echo "您可以使用指令screen -r minerProxy查看程序输出"
+    echo "miningProxy已启动"
+    echo "您可以使用指令screen -r miningProxy查看程序输出"
 }
 
 restart() {
-    if screen -list | grep -q "minerProxy"; then
-        screen -X -S minerProxy quit
+    if screen -list | grep -q "miningProxy"; then
+        screen -X -S miningProxy quit
     fi
-    screen -dmS minerProxy
+    screen -dmS miningProxy
     sleep 0.2s
-    screen -r minerProxy -p 0 -X stuff "cd /root/miner_proxy"
-    screen -r minerProxy -p 0 -X stuff $'\n'
-    screen -r minerProxy -p 0 -X stuff "./run.sh"
-    screen -r minerProxy -p 0 -X stuff $'\n'
+    screen -r miningProxy -p 0 -X stuff "cd /root/mining_proxy"
+    screen -r miningProxy -p 0 -X stuff $'\n'
+    screen -r miningProxy -p 0 -X stuff "./run.sh"
+    screen -r miningProxy -p 0 -X stuff $'\n'
 
-    echo "minerProxy 重新启动成功"
-    echo "您可运行 screen -r minerProxy 查看程序输出"
+    echo "miningProxy 重新启动成功"
+    echo "您可运行 screen -r miningProxy 查看程序输出"
 }
 
 stop() {
-    if screen -list | grep -q "minerProxy"; then
-        screen -X -S minerProxy quit
+    if screen -list | grep -q "miningProxy"; then
+        screen -X -S miningProxy quit
     fi
-    echo "minerProxy 已停止"
+    echo "miningProxy 已停止"
 }
 
 change_limit(){
@@ -176,8 +176,8 @@ check_limit(){
 }
 
 echo "======================================================="
-echo "zrx830的minerProxy 一键工具"
-echo "  1、安装(默认安装到/root/minerProxy)"
+echo "zrx830的miningProxy 一键工具"
+echo "  1、安装(默认安装到/root/miningProxy)"
 echo "  2、卸载"
 echo "  3、更新"
 echo "  4、启动"
