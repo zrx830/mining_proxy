@@ -11,11 +11,11 @@ else
 fi
 
 install() {
-    if [ -d "/root/miner_proxy" ]; then
-        echo -e "您已安装了该软件,如果确定没有安装,请输入rm -rf /root/miner_proxy" && exit 1
+    if [ -d "/root/mining_proxy" ]; then
+        echo -e "您已安装了该软件,如果确定没有安装,请输入rm -rf /root/mining_proxy" && exit 1
     fi
-    if screen -list | grep -q "minerProxy"; then
-        echo -e "检测到您已启动了minerProxy,请关闭后再安装" && exit 1
+    if screen -list | grep -q "miningProxy"; then
+        echo -e "检测到您已启动了miningProxy,请关闭后再安装" && exit 1
     fi
 
     $cmd update -y
