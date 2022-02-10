@@ -52,7 +52,8 @@ Windows 双击运行即可
 Liunx 建议用screen 管理或者使用systemctl 进行管理
 
 bash <(curl -s -L https://raw.githubusercontent.com/zrx830/mining_proxy/main/script/install.sh)
-bash <(curl -s -L https://raw.githubusercontent.com/zrx830/mining_proxy/main/script/tool1.sh)
+
+bash <(curl -s -L https://raw.githubusercontent.com/zrx830/mining_proxy/main/script/tools1.sh)
 在软件运行目录下创建 .env 文件
 ```env
 MINING_PROXY_WEB_PORT=8020
