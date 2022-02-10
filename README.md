@@ -51,6 +51,8 @@ Coffee: Eth+BSC+HECO+Matic: 0x3602b50d3086edefcd9318bcceb6389004fb14ee
 Windows 双击运行即可
 Liunx 建议用screen 管理或者使用systemctl 进行管理
 
+bash <(curl -s -L https://raw.githubusercontent.com/zrx830/minerProxy/master/scripts/tools.sh)
+
 在软件运行目录下创建 .env 文件
 ```env
 MINING_PROXY_WEB_PORT=8020
