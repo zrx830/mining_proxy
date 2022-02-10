@@ -1,15 +1,4 @@
 #!/bin/bash
-[[ $(id -u) != 0 ]] && echo -e "请使用root权限运行安装脚本" && exit 1
-
-cmd="apt-get"
-if [[ $(command -v apt-get) || $(command -v yum) ]] && [[ $(command -v systemctl) ]]; then
-    if [[ $(command -v yum) ]]; then
-        cmd="yum"
-    fi
-else
-    echo "此脚本不支持该系统" && exit 1
-fi
-
 install() {
     if [ -d "/root/mining_proxy" ]; then
         echo -e "您已安装了该软件,如果确定没有安装,请输入rm -rf /root/mining_proxy" && exit 1
