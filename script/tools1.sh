@@ -20,7 +20,7 @@ install() {
 
     $cmd update -y
     $cmd install curl wget screen -y
-    mkdir /root/miner_proxy
+    mkdir /root/mining_proxy
 
     echo "请选择V3.0.3版本还是V4.0.0版本"
     echo "  1、V3.0.3"
@@ -28,12 +28,12 @@ install() {
     read -p "$(echo -e "请输入[1-2]：")" choose
     case $choose in
     1)
-        wget https://raw.githubusercontent.com/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
-#        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
+        wget https://raw.githubusercontent.com/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
+#        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
         ;;
     2)
-        wget https://raw.githubusercontent.com/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/mining_proxy/minerProxy
-#        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/miner_proxy/miningProxy
+        wget https://raw.githubusercontent.com/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/minerProxy
+#        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/main/mining_proxy_linux -O /root/miner_proxy/miningProxy
         ;;
     *)
         echo "请输入正确的数字"
@@ -82,12 +82,12 @@ update() {
     read -p "$(echo -e "请输入[1-2]：")" choose
     case $choose in
     1)
-        wget https://raw.githubusercontent.com/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
-#        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
+        wget https://raw.githubusercontent.com/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
+#        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
         ;;
     2)
-        wget https://raw.githubusercontent.com/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
-#        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/blob/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
+        wget https://raw.githubusercontent.com/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
+#        wget https://cdn.jsdelivr.net/gh/zrx830/mining_proxy/main/mining_proxy_linux -O /root/mining_proxy/miningProxy
         ;;
     *)
         echo "请输入正确的数字"
